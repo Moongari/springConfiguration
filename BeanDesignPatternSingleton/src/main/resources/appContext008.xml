@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- BEAN singleton ici
+    il faut declarer la factory method qui appel l'instance de la class Singleton
+    -->
+    <bean id="singleton" class="MyClassSingleton" factory-method="getInstance"></bean>
+    <!--le bean factory nous pouvons creer un bean a partir d'une factory -->
+        <bean id="factory"  class="Factory"></bean>
+    <!--Creation du beanACreer a partir du bean Factory-->
+        <bean id ="BeanACreer" factory-bean="factory" factory-method="create"></bean>
+</beans>
