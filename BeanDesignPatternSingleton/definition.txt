@@ -1,0 +1,3 @@
+Ce projet a pour but gerer le pattern singleton par le biais de fichier de configuration
+via application context 
+on peut faire appel a notre method d'instance via fichier de configuration.
