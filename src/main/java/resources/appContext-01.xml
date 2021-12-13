@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--definition du autowiring byName donc par le biais de setter-->
+<!--definition du autowiring constructeur  il utilisera le constructeur qui contient le plus de parametre-->
+<beans default-autowire="constructor" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="daoHotel" class="fr.moon.formation.spring.dao.DaoHotelImpl"></bean>
+
+        <bean id="serviceHotel" class="fr.moon.formation.spring.service.ServiceHoteImpl">
+
+        </bean>
+
+
+</beans>
