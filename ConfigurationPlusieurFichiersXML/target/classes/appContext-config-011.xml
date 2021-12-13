@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--on a des propriete commune donc on va voir comment creer un heritage
+     pour cela on va creer un  bean abstrait
+     ensuite on ajoute l'element parent en definissant le bean template
+     nous n'avons plus besoin du reste
+     -->
+
+
+    <bean id="daoPerson" class="fr.moon.springconfiguration.dao.DaoPersonImpl"></bean>
+
+    <bean id="ServiceTemplate" abstract="true">
+        <property name="daoPerson" ref="daoPerson"></property>
+    </bean>
+
+    <bean id="ServicePersonImpl" class="fr.moon.springconfiguration.service.ServicePersonImpl" parent="ServiceTemplate">
+        <!--<property name="daoPerson" ref="daoPerson"></property>-->
+ </bean>
+
+ <bean id="ServicePresidentImpl" class="fr.moon.springconfiguration.service.ServicePresidentImpl" parent="ServiceTemplate">
+     <!--<property name="daoPerson" ref="daoPerson"></property>-->
+ </bean>
+
+</beans>
