@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--injection par  constructeur -->
+    <!--DAO BEAN-->
+    <bean id="IFormationDao" class="fr.moon.formation.dao.FormationDaoImpl"></bean>
+    <!--Service BEAN-->
+    <bean id="ServiceImpl" class="fr.moon.formation.service.ServiceFormationImpl">
+        <constructor-arg ref="IFormationDao" ></constructor-arg>
+        <constructor-arg value="MoonEtablissement"></constructor-arg>
+
+    </bean>
+
+    <bean id="FormationDao" class="fr.moon.formation.dao.FormationDaoImpl"></bean>
+    <bean id="serviceImpl" class="fr.moon.formation.service.ServiceFormationImpl">
+        <property name="formationDao" ref="FormationDao"></property>
+        <property name="etablissement" value="Ecole MIT"></property>
+    </bean>
+
+</beans>

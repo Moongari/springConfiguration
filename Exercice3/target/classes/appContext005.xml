@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--injection par  setter
+    il est tout a fait possible de definir l'autowiring par defaut en integrant l'autowiring par Name
+    sans avoir a declarer les property
+    spring retrouve automatiquement la relation entre id formationDao et le bean service qui l'utilise
+    -->
+
+    <!--DAO BEAN-->
+    <bean id="formationDao" class="fr.moon.formation.dao.FormationDaoImpl"></bean>
+    <bean name="formationDao2" class="fr.moon.formation.dao.FormationDaoImpl"></bean>
+    <bean  class="fr.moon.formation.dao.FormationDaoImpl"></bean>
+    <!--Service BEAN-->
+    <bean id="serviceImpl" class="fr.moon.formation.service.ServiceFormationImpl">
+        <property name="formationDao" ref="formationDao"></property>
+        <property name="etablissement" value="Ecole MIT"></property>
+    </bean>
+
+</beans>
